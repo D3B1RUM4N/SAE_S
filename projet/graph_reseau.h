@@ -26,27 +26,36 @@ La difference serra faite via l'adresse IP
 une station en a une alors qu'un switch non.
 */
 
-struct equipement
+struct equipements
 {
-    char mac[48];
-    uint8_t nbPort =0;
-    uint8_t priorite =0;
+    const char* mac[17] = {"5", "5", ":", "3", "a", ":", "c", "2", ":", "6", "9", ":", "2", "1", ":", "d", "2" };
+    uint8_t nbPort =5;
+    uint8_t priorite =1;
     vector<int> tabcom;
-    int ip[32];
+    const char* ip[16] = {"1", "3", "0", ".", "7", "9", ".", "0", ".", "1", "2", "6"};
 };
 
-struct sommet
+struct liens
 {
-    equipement e1;
-    equipement e2;
+    equipements e1;
+    equipements e2;
 };
 
 
+
+//using liens = uint32_t;
 struct lan
 {
-    uint8_t nb_sommet = 0;
-    vector<equipement> equipement;
+    uint8_t nb_liens = 1;
+    vector<equipements> equipement;
 };
+
+
+int affichage(equipements* e, lan* l);
+
+
+
+
 
 
 

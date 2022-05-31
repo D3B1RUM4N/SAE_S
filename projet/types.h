@@ -10,9 +10,9 @@ Un sommet est un entier.
 Une arête est une structure composée de deux sommets.
 */
 
-using sommet = uint32_t;
-struct arete
-{
-    sommet s1;
-    sommet s2;
-};
+//using sommet = uint32_t;
+// struct arete
+// {
+//     sommet s1;
+//     sommet s2;
+// };

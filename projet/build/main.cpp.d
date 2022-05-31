@@ -1,3 +1,5 @@
-build/./main.cpp.o: main.cpp affichage.h
+build/./main.cpp.o: main.cpp graph_reseau.h types.h
 
-affichage.h:
+graph_reseau.h:
+
+types.h:
