@@ -1,4 +1,6 @@
 #include <cstdio>
+#include "affichage.h"
+
 
 using namespace std;
 
@@ -7,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    
+    affichage();
 
     return 0;
 }
