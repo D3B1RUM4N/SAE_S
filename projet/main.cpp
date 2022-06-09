@@ -12,10 +12,14 @@ int main()
     lan l;
     equipement e;
 
+
+    equipement e1 = newPost();
     //affichage dans le terminal
     affichage(&e, &l);
     //ecriture
     ecriture(&l);
+
+    
 
     return 0;
 }

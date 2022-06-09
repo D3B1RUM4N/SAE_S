@@ -28,11 +28,12 @@ une station en a une alors qu'un switch non.
 
 struct equipements
 {
-    const char* mac[6] = {"55", "3a", "c2", "69", "21", "d2" };
+    bool poste;
+    const char* mac[6]; //= {"55", "3a", "c2", "69", "21", "d2" };
     uint8_t nbPort =5;
     uint8_t priorite =1;
     vector<int> tabcom;
-    const char* ip[16] = {"1", "3", "0", ".", "7", "9", ".", "0", ".", "1", "2", "6"};
+    const char* ip[12] = {"1", "3", "0", ".", "7", "9", ".", "0", ".", "1", "2", "6"};
 };
 
 struct lien
@@ -53,6 +54,7 @@ struct lan
 
 int affichage(equipements* e, lan* l);
 void ecriture(lan* l);
+equipements newPost();
 
 
 
