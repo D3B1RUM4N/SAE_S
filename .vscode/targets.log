@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  9 11:11:45 2022
+# Make data base, printed on Thu Jun  9 17:29:55 2022
 
 # Variables
 
@@ -119,7 +117,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 147935
+GIO_LAUNCHED_DESKTOP_FILE_PID = 162768
 # automatic
 %F = $(notdir $%)
 # environment
@@ -183,7 +181,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-dad814b1-a480-4e1f-b637-6f89d3123021.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c566bd52-af92-47c2-9f1a-01e7fd5a0254.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -251,7 +249,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 147987
+VSCODE_PID = 162812
 # variable set hash-table stats:
 # Load=120/1024=12%, Rehash=0, Collisions=18/142=13%
 
@@ -281,6 +279,8 @@ all:
 # Not a target:
 Makefile:
  
+make: *** No rule to make target 'all'.  Stop.
+
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -320,6 +320,6 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Thu Jun  9 11:11:45 2022
+# Finished Make data base on Thu Jun  9 17:29:55 2022
 
  

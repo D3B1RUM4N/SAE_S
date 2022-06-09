@@ -15,17 +15,18 @@ void ecriture(lan* l)
 
         fichier << "Information sur la lan : \n";
         //ecriture des routeurs
+        fichier << "routeurs : \n";
         for(int i = 0; i<l->equipement.size(); i++)
         {
-            fichier << "routeurs : \n";
+            
             //verifier si c'est un switch ou pas
-            if(l->equipement[i].mac != 0)
+            if(!l->equipement[i].poste)
             {
                 printf("if 1");
                 fichier << i << ";\t";
                 for(const char* mac : l->equipement[i].mac)
                 {
-                    fichier << "%s",mac;
+                    fichier << mac;
                     if(i < 5)
                     {
                         fichier << ":";
@@ -33,7 +34,8 @@ void ecriture(lan* l)
                     i++;
                 } 
                 fichier << ";\t";
-                fichier << l->equipement[i].nbPort << ";\t" << l->equipement[i].priorite << "\n";
+                char s[2];
+                fichier << sprintf(s, "%d", l->equipement[i].nbPort) << ";\t" << l->equipement[i].priorite << "\n";
             }
         }
         //s'occupé des stations
@@ -41,7 +43,7 @@ void ecriture(lan* l)
         for(int i = 0; i<l->equipement.size(); i++)
         {
             //if(l->equipement[i].mac == 0)
-            if(true)
+            if(l->equipement[i].poste)
             {
                 printf("if 2");
                 fichier << i << ";\t";
@@ -50,7 +52,7 @@ void ecriture(lan* l)
                     fichier << ip << ";\t";
                     for(const char* mac : l->equipement[i].mac)
                     {
-                        fichier << "%s",mac;
+                        fichier << mac;
                         if(i < 5)
                         {
                             fichier << ":";
@@ -94,4 +96,43 @@ equipements newPost()
         e.ip[10] = "8";
         e.ip[11] = "9";
     return e;
+}
+
+equipements newRouteur()
+{
+    equipements e;
+    e.poste = false;
+    //adresse mac
+        e.mac[0] = "07";
+        e.mac[1] = "08";
+        e.mac[2] = "09";
+        e.mac[3] = "a0";
+        e.mac[4] = "a1";
+        e.mac[5] = "a1";
+    //adresse ip
+        e.ip[0] = "2";
+        e.ip[1] = "3";
+        e.ip[2] = "4";
+        e.ip[3] = ".";
+        e.ip[4] = "5";
+        e.ip[5] = "6";
+        e.ip[6] = ".";
+        e.ip[7] = "7";
+        e.ip[8] = ".";
+        e.ip[9] = "8";
+        e.ip[10] = "9";
+        e.ip[11] = "0";
+    //port
+    uint8_t a = 3;
+    e.nbPort = a;
+    //priorité
+    uint8_t b = 3;
+    e.priorite = b;
+
+    return e;
+}
+
+void newLan(lan* l, equipements* e)
+{
+    l->equipement.push_back(*e);
 }

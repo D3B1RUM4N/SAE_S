@@ -9,15 +9,22 @@ using lan = lan;
 
 int main()
 {
-    lan l;
+    lan l1;
     equipement e;
 
 
     equipement e1 = newPost();
+    equipement e2 = newRouteur();
+    newLan(&l1, &e1);
+    newLan(&l1, &e2);
+    
+
+
     //affichage dans le terminal
-    affichage(&e, &l);
+    affichage(&e1, &l1);
     //ecriture
-    ecriture(&l);
+
+ecriture(&l1);
 
     
 
