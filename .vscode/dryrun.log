@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/devilman/Documents/cours/SAE_S/SAE_S'
+make: Leaving directory '/home/devilman/Documents/cours/SAE_S/SAE_S'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

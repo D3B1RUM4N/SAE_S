@@ -39,8 +39,8 @@ struct liens
 {
     equipements e1;
     equipements e2;
+    uint8_t poid = 100;
 };
-
 
 
 //using liens = uint32_t;
