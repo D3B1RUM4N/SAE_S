@@ -11,7 +11,11 @@ int main()
 {
     lan l;
     equipement e;
+
+    //affichage dans le terminal
     affichage(&e, &l);
+    //ecriture
+    ecriture(&l);
 
     return 0;
 }

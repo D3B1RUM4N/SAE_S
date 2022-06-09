@@ -4,15 +4,21 @@
 int affichage(equipements* e, lan* l)
 {
     printf("adresse mac : \t");
+    int i = 0;
     for(const char* mac : e->mac)
     {
-        printf(mac);
+        printf("%s",mac);
+        if(i < 5)
+        {
+            printf(":");
+        }
+        i++;
     }
     printf("\n");
     printf("ip : \t");
     for(const char* ip : e->ip)
     {
-        printf(ip);
+        printf("%s", ip);
     }
     printf("\n");
 
