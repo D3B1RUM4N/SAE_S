@@ -4,6 +4,7 @@
 #include <cassert>
 #include <functional>
 #include "string.h"
+using namespace std;
 
 
 /*
@@ -25,21 +26,31 @@ La difference serra faite via l'adresse IP
 une station en a une alors qu'un switch non.
 */
 
+//type pour ip
+typedef unsigned char ipv4[4];
+//type pour mac
+typedef unsigned char addMac[6];
+
 struct equipements
 {
+    int index;
     bool poste;
-    const char* mac[6]; //= {"55", "3a", "c2", "69", "21", "d2" };
     uint8_t nbPort; //=5;
     uint8_t priorite; //=1;
     vector<int> tabcom;
-    const char* ip[12]; //= {"1", "3", "0", ".", "7", "9", ".", "0", ".", "1", "2", "6"};
+    ipv4 ip;
+    addMac mac;
+    //const char* ip[12]; //= {"1", "3", "0", ".", "7", "9", ".", "0", ".", "1", "2", "6"};
+    //const char* mac[6]; //= {"55", "3a", "c2", "69", "21", "d2" };
 };
 
 struct lien
 {
     equipements e1;
     equipements e2;
-    uint8_t poid = 100;
+    int indexe1;
+    int indexe2;
+    int poid;
 };
 
 
@@ -57,3 +68,5 @@ equipements newPost();
 equipements newRouteur();
 void newLan(lan* l, equipements* e);
 
+bool ajouterLien(lan* l, lien s);
+bool existeLien(lan* l, lien a);

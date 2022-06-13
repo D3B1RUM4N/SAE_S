@@ -17,6 +17,9 @@ int main()
     equipement e2 = newRouteur();
     newLan(&l1, &e1);
     newLan(&l1, &e2);
+
+    ajouterLien(&l1, {e1, e2});
+    ajouterLien(&l1, {e1, e2});
     
 
 

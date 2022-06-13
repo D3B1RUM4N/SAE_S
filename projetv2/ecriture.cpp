@@ -5,64 +5,79 @@
 void ecriture(lan* l) 
 {
     vector<equipements> e = l->equipement;
-    ofstream fichier("test.txt", ios::out | ios::trunc);  //déclaration du flux et ouverture du fichier
+    ofstream fichier("text.txt", ios::out | ios::trunc);  //déclaration du flux et ouverture du fichier
     
     if(fichier)  // si l'ouverture a réussi
     {
-        // instructions
-        fichier << l->equipement.size() << "\t" << l->liens.size() << " \n";
-
-        fichier << "Information sur la lan : \n";
-        //ecriture des routeurs
-        fichier << "routeurs : \n";
-        for(int i = 0; i<l->equipement.size(); i++)
+        fichier << l->equipement.size() << " " << l->liens.size() << "\n";
+        for(equipements e : l->equipement)
         {
-            
-            //verifier si c'est un switch ou pas
-            if(!l->equipement[i].poste)
+            if(e.poste)
             {
-                //printf("if 1");
-                fichier << i << ";\t";
-                for(const char* mac : l->equipement[i].mac)
+                int i = 0;
+                fichier << "1;";
+                char *resMAC = (char *)calloc(20, sizeof(char));
+                for(unsigned char mac : e.mac)
                 {
-                    fichier << mac;
+                    sprintf(resMAC, "%d", mac);
+                    fichier << resMAC;
                     if(i < 5)
                     {
                         fichier << ":";
                     }
                     i++;
-                } 
-                fichier << ";\t";
-                char s[2];
-                fichier << sprintf(s, "%d", l->equipement[i].nbPort) << ";\t" << l->equipement[i].priorite << "\n";
-            }
-        }
-        //s'occupé des stations
-        fichier << "\ninformation sur les stations : \n";
-        for(int i = 0; i<l->equipement.size(); i++)
-        {
-            //if(l->equipement[i].mac == 0)
-            if(l->equipement[i].poste)
-            {
-                //printf("if 2");
-                fichier << i << ";\t";
-                for(const char* ip : l->equipement[i].ip)
-                {
-                    fichier << ip << ";\t";
-                    for(const char* mac : l->equipement[i].mac)
-                    {
-                        fichier << mac;
-                        if(i < 5)
-                        {
-                            fichier << ":";
-                        }
-                        i++;
-                    } 
-                    fichier << "\n";
                 }
+                free(resMAC);
+
+                fichier << ";";
+                char *resIP = (char *)calloc(20, sizeof(char));
+                i=0;
+                for(int y = 0; y < 4; y++)
+                {
+                    sprintf(resIP, "%d", e.ip[y]);
+                    fichier << resIP;
+                    if(i < 3)
+                    {
+                        fichier <<".";
+                    }
+                    i++;
+                }
+                free(resIP);
+                fichier << ";" << e.index << "\n";
             }
-            fichier << "\n";
+            else
+            {
+                int i = 0;
+                fichier << "2;";
+                char *resMac = (char *)calloc(20, sizeof(char));
+                for(unsigned char mac : e.mac)
+                {
+                    
+                    sprintf(resMac, "%d", mac);
+                    fichier << resMac;
+                    if(i < 5)
+                    {
+                        fichier << ":";
+                    }
+                    i++;
+                }
+                free(resMac);
+                char *res = (char *)calloc(20, sizeof(char));
+                sprintf(res, ";%d;%d;%d \n", e.nbPort, e.priorite, e.index);
+                fichier << res;
+                free(res);
+                //fichier << ";" << e.nbPort << ";" << e.priorite << "\n";
+            }
+
+            for(lien s : l->liens)
+            {
+                char *resLien = (char *)calloc(20, sizeof(char));
+                sprintf(resLien, "%d;%d;%d", s.indexe1,s.indexe2,s.poid);
+                fichier << resLien << "\n";
+                free(resLien);
+            }
         }
+
             fichier.close();  // on referme le fichier
     }
     else  // sinon

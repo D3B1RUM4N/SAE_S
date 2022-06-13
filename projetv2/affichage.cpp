@@ -1,13 +1,17 @@
 
 #include "algos.h"
 
+
+
+
+
 int affichage(equipements* e, lan* l)
 {
     printf("adresse mac : \t");
     int i = 0;
-    for(const char* mac : e->mac)
+    for(unsigned char mac : e->mac)
     {
-        printf("%s",mac);
+        printf("%hhx",mac);
         if(i < 5)
         {
             printf(":");
@@ -16,9 +20,15 @@ int affichage(equipements* e, lan* l)
     }
     printf("\n");
     printf("ip : \t");
-    for(const char* ip : e->ip)
+    i=0;
+    for(unsigned char ip : e->ip)
     {
-        printf("%s", ip);
+        printf("%d", ip);
+        if(i < 3)
+        {
+            printf(".");
+        }
+        i++;
     }
     printf("\n");
 
