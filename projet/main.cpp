@@ -24,7 +24,8 @@ int main()
     affichage(&e1, &l1);
     //ecriture
 
-ecriture(&l1);
+    //ecriture(&l1);
+
 
     
 

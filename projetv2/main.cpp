@@ -24,9 +24,13 @@ int main()
 
 
     //affichage dans le terminal
-    affichage(&e1, &l1);
+    //affichage(&e1, &l1);
     //ecriture
-    ecriture(&l1);
+    //ecriture(&l1);
+
+    //
+    lan l2;
+    lecture(&l2);
 
     
 

@@ -58,7 +58,7 @@ equipements newRouteur()
 void newLan(lan* l, equipements* e)
 {
     e->index = l->equipement.size() +1;
-    printf("index equipement %d \n", e->index);
+    //printf("index equipement %d \n", e->index);
     l->equipement.push_back(*e);
 }
 
@@ -82,13 +82,13 @@ bool ajouterLien(lan* l, lien s)
 bool existeLien(lan* l, lien a)
 {
     bool res = false;
-    printf("size %ld \n", l->liens.size());
+    //printf("size %ld \n", l->liens.size());
     for(lien x : l->liens)
     {
-        printf("AVANT LE IF index e1 %d index e2 %d index x1 %d index x2 %d \n", a.indexe1, a.indexe2, x.indexe1, x.indexe2);
+        //printf("AVANT LE IF index e1 %d index e2 %d index x1 %d index x2 %d \n", a.indexe1, a.indexe2, x.indexe1, x.indexe2);
         if(x.indexe1 == a.indexe1 && x.indexe2 == a.indexe2 || x.indexe2 == a.indexe1 && x.indexe1 == a.indexe2)
         {
-            printf("index e1 %d index e2 %d index x1 %d index x2 %d \n", a.indexe1, x.indexe2, x.indexe1, x.indexe2);
+            //printf("index e1 %d index e2 %d index x1 %d index x2 %d \n", a.indexe1, x.indexe2, x.indexe1, x.indexe2);
             res = true;
         }
     }

@@ -64,9 +64,13 @@ struct lan
 
 int affichage(equipements* e, lan* l);
 void ecriture(lan* l);
+
 equipements newPost();
 equipements newRouteur();
 void newLan(lan* l, equipements* e);
 
 bool ajouterLien(lan* l, lien s);
 bool existeLien(lan* l, lien a);
+
+void lecture(lan* l);
+void ajouterPost(lan* l, string ligne);
