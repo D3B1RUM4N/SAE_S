@@ -25,17 +25,20 @@ void lecture(lan* l)
             {
                 char * strToken = strtok ( (char*)ligne.c_str(), separators );
 
-                printf("longueure : %ld\t",strlen(strToken));
-                printf("val %s \n", strToken);
-                for(int j; j < strlen(strToken); j++)
+                //printf("longueure : %ld\t",strlen(strToken));
+                //printf("val %s \n", strToken);
+                
+                printf("strToken : %s \n", strToken);
+                if(strToken == "1")
                 {
-                    printf("strToken : %s \n", strToken);
-                    if(strToken[j]=='1')
-                    {
-                        ajouterPost(l, ligne);
-                    }    
+                    printf("on est la hein");
+                    ajouterPost(l, ligne);
+                }   
+                else if (strToken == "2")
+                {
+                    printf("on est la ???");
                 }
-
+                
             }
             i++;
         }
@@ -64,7 +67,7 @@ void ajouterPost(lan* l, string ligne)
         }
         if(i == 2)
         {
-            printf("mac : %s", strToken);
+            printf("mac : %s \n", strToken);
         }
         i++;
         strToken = strtok ( NULL, separators );
